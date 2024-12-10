@@ -1,0 +1,86 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmk1scaldtwwt"]
+
+[ext_resource type="Script" path="res://SCRIPTS/move_ui.gd" id="1_ofdtj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b0vwd"]
+bg_color = Color(0.114705, 0.146496, 0.358113, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.808999, 0.808998, 0.808998, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_size = 5
+shadow_offset = Vector2(1, 3)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1huf6"]
+bg_color = Color(0.114705, 0.146496, 0.358113, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.808999, 0.808998, 0.808998, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_size = 5
+shadow_offset = Vector2(1, 3)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1b37s"]
+bg_color = Color(0.114705, 0.146496, 0.358113, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_size = 5
+shadow_offset = Vector2(1, 3)
+anti_aliasing = false
+
+[sub_resource type="Theme" id="Theme_d35wb"]
+Button/font_sizes/font_size = 60
+Button/styles/disabled = SubResource("StyleBoxFlat_b0vwd")
+Button/styles/focus = SubResource("StyleBoxFlat_1huf6")
+Button/styles/hover = SubResource("StyleBoxFlat_1b37s")
+Button/styles/normal = SubResource("StyleBoxFlat_1b37s")
+
+[node name="move_UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ofdtj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(400, 600)
+layout_mode = 0
+offset_right = 360.0
+offset_bottom = 400.0
+
+[node name="atack" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../abilitys")
+theme = SubResource("Theme_d35wb")
+text = "atack"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="abilitys" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+focus_neighbor_top = NodePath("../atack")
+theme = SubResource("Theme_d35wb")
+text = "abilitys"
+
+[connection signal="button_down" from="VBoxContainer/atack" to="." method="_on_atack_button_down"]
+[connection signal="button_down" from="VBoxContainer/abilitys" to="." method="_on_abilitys_button_down"]

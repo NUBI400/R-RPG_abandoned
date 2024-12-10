@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://7qcop2oktbki"]
+
+[ext_resource type="Script" path="res://SCRIPTS/Enemy/EnemyActionPicker.gd" id="1_yn0fe"]
+[ext_resource type="Script" path="res://PERSONAGENS/Enemy/AI_enemy/AttackAction.gd" id="2_wgciy"]
+[ext_resource type="Script" path="res://PERSONAGENS/Enemy/AI_enemy/BlockAction.gd" id="3_waqlr"]
+[ext_resource type="Script" path="res://PERSONAGENS/Enemy/AI_enemy/MegaBlockAction.gd" id="4_m2ihd"]
+
+[node name="EnemyAI_base" type="Node"]
+script = ExtResource("1_yn0fe")
+
+[node name="AttackAction" type="Node" parent="."]
+script = ExtResource("2_wgciy")
+
+[node name="BlockAction" type="Node" parent="."]
+script = ExtResource("3_waqlr")
+
+[node name="MegaBlockAction" type="Node" parent="."]
+script = ExtResource("4_m2ihd")

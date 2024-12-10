@@ -1,0 +1,156 @@
+[gd_scene load_steps=3 format=3 uid="uid://r8t0n04oiav7"]
+
+[ext_resource type="Script" path="res://SCRIPTS/Stats_ui.gd" id="1_gy54m"]
+[ext_resource type="Texture2D" uid="uid://g224fje2rfq6" path="res://ASSETS/adachi.png" id="2_t3bgb"]
+
+[node name="StatsUI" type="Control"]
+custom_minimum_size = Vector2(521, 477)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 531.0
+offset_bottom = 409.0
+script = ExtResource("1_gy54m")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.253292, 0, 0.030228, 1)
+layout_mode = 0
+offset_right = 529.0
+offset_bottom = 473.0
+texture = ExtResource("2_t3bgb")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(521, 477)
+layout_mode = 0
+offset_right = 521.0
+offset_bottom = 215.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Name" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "<null>"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="PV" type="HBoxContainer" parent="VBoxContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(200, 65)
+layout_mode = 2
+alignment = 1
+
+[node name="text" type="Label" parent="VBoxContainer/HBoxContainer/PV"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "PV:  "
+
+[node name="int" type="Label" parent="VBoxContainer/HBoxContainer/PV"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "<null>"
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="PA" type="HBoxContainer" parent="VBoxContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(200, 65)
+layout_mode = 2
+alignment = 1
+
+[node name="text" type="Label" parent="VBoxContainer/HBoxContainer/PA"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "PA:  "
+
+[node name="int" type="Label" parent="VBoxContainer/HBoxContainer/PA"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "<null>"
+
+[node name="Força" type="HBoxContainer" parent="VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(200, 65)
+layout_mode = 2
+
+[node name="text" type="Label" parent="VBoxContainer/Força"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Força:"
+
+[node name="int" type="Label" parent="VBoxContainer/Força"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 45
+text = "<null>"
+
+[node name="Destreza" type="HBoxContainer" parent="VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(200, 65)
+layout_mode = 2
+
+[node name="text" type="Label" parent="VBoxContainer/Destreza"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Destreza:"
+
+[node name="int" type="Label" parent="VBoxContainer/Destreza"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 45
+text = "<null>"
+
+[node name="Carisma" type="HBoxContainer" parent="VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(200, 65)
+layout_mode = 2
+
+[node name="text" type="Label" parent="VBoxContainer/Carisma"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Carisma:"
+
+[node name="int" type="Label" parent="VBoxContainer/Carisma"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 45
+text = "<null>"
+
+[node name="Constituição" type="HBoxContainer" parent="VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(200, 65)
+layout_mode = 2
+
+[node name="text" type="Label" parent="VBoxContainer/Constituição"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Constituição:"
+
+[node name="int" type="Label" parent="VBoxContainer/Constituição"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 45
+text = "<null>"
+
+[node name="Sabedoria" type="HBoxContainer" parent="VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(200, 65)
+layout_mode = 2
+
+[node name="text" type="Label" parent="VBoxContainer/Sabedoria"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Sabedoria:"
+
+[node name="int" type="Label" parent="VBoxContainer/Sabedoria"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 45
+text = "<null>"

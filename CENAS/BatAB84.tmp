@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://ca06f0iwbv443"]
+
+[ext_resource type="PackedScene" uid="uid://crfrgmvgh4sx7" path="res://CENAS/Player.tscn" id="1_0qa57"]
+[ext_resource type="Script" path="res://SCRIPTS/battle.gd" id="1_1pni0"]
+[ext_resource type="Script" path="res://a.gd" id="3_mnkja"]
+[ext_resource type="PackedScene" uid="uid://dmqom4g7bsk40" path="res://CENAS/enemy.tscn" id="4_ylcps"]
+[ext_resource type="Resource" uid="uid://cdb0ns61momm4" path="res://PERSONAGENS/Enemy/adachi.tres" id="5_2t57q"]
+[ext_resource type="Script" path="res://SCRIPTS/Stats.gd" id="6_kk1vh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4oe0h"]
+size = Vector2(412, 326)
+
+[node name="Battle" type="Node2D" node_paths=PackedStringArray("player", "enemy")]
+script = ExtResource("1_1pni0")
+player = NodePath("Player")
+enemy = NodePath("Enemy")
+
+[node name="Player" parent="." instance=ExtResource("1_0qa57")]
+
+[node name="CardDropArea" type="Area2D" parent="." groups=["enemies"]]
+position = Vector2(852, 272)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea"]
+shape = SubResource("RectangleShape2D_4oe0h")
+
+[node name="TextureButton" type="TextureButton" parent="." node_paths=PackedStringArray("player_stats")]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_mnkja")
+player_stats = NodePath("../Player")
+
+[node name="Enemy" parent="." instance=ExtResource("4_ylcps")]
+position = Vector2(1474, 361)
+group_all_stats = Array[ExtResource("6_kk1vh")]([ExtResource("5_2t57q")])
+
+[connection signal="button_down" from="TextureButton" to="TextureButton" method="_on_button_down"]

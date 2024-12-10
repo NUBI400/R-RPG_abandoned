@@ -1,0 +1,118 @@
+[gd_scene load_steps=15 format=3 uid="uid://ca06f0iwbv443"]
+
+[ext_resource type="PackedScene" uid="uid://crfrgmvgh4sx7" path="res://CENAS/Player.tscn" id="1_0qa57"]
+[ext_resource type="Script" path="res://SCRIPTS/battle.gd" id="1_1pni0"]
+[ext_resource type="PackedScene" uid="uid://drdy2kyhe0ooi" path="res://CENAS/group.tscn" id="2_s48ig"]
+[ext_resource type="Script" path="res://SCRIPTS/abilitys.gd" id="3_4gcsj"]
+[ext_resource type="PackedScene" uid="uid://c76y371tu86x2" path="res://CENAS/ability_ui.tscn" id="3_k8sdf"]
+[ext_resource type="Script" path="res://a.gd" id="3_mnkja"]
+[ext_resource type="Resource" uid="uid://ckrpl57ms23uh" path="res://PERSONAGENS/Symas/Symas.tres" id="4_k3vyx"]
+[ext_resource type="PackedScene" uid="uid://dmqom4g7bsk40" path="res://CENAS/enemy.tscn" id="4_ylcps"]
+[ext_resource type="Resource" uid="uid://cdb0ns61momm4" path="res://PERSONAGENS/Enemy/adachi.tres" id="5_2t57q"]
+[ext_resource type="Resource" uid="uid://b8ormxxvey48c" path="res://PERSONAGENS/Ajax/Ajax.tres" id="5_depmo"]
+[ext_resource type="Script" path="res://SCRIPTS/Stats.gd" id="6_kk1vh"]
+[ext_resource type="PackedScene" uid="uid://r8t0n04oiav7" path="res://CENAS/stats_ui.tscn" id="10_hx2aw"]
+[ext_resource type="Texture2D" uid="uid://g224fje2rfq6" path="res://ASSETS/adachi.png" id="11_i1gpy"]
+[ext_resource type="PackedScene" uid="uid://cmk1scaldtwwt" path="res://CENAS/move_ui.tscn" id="13_j2ykh"]
+
+[node name="Battle" type="Node2D" node_paths=PackedStringArray("player", "enemy")]
+script = ExtResource("1_1pni0")
+player = NodePath("Group_player")
+enemy = NodePath("Group_enemy")
+
+[node name="move_UI" parent="." node_paths=PackedStringArray("AB_UI") instance=ExtResource("13_j2ykh")]
+visible = false
+offset_left = 840.0
+offset_top = 337.0
+offset_right = 840.0
+offset_bottom = 337.0
+scale = Vector2(0.6, 0.6)
+AB_UI = NodePath("../Abilitys")
+
+[node name="Abilitys" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("3_4gcsj")
+
+[node name="TextureRect" type="TextureRect" parent="Abilitys"]
+modulate = Color(0.306699, 0.000135223, 0.342127, 1)
+z_index = -1
+layout_mode = 0
+offset_left = 220.0
+offset_top = 950.0
+offset_right = 13330.0
+offset_bottom = 2260.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("11_i1gpy")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Abilitys"]
+layout_mode = 0
+offset_left = 267.0
+offset_top = 974.0
+offset_right = 1488.0
+offset_bottom = 1077.0
+alignment = 1
+
+[node name="Ability_UI" parent="Abilitys/VBoxContainer" instance=ExtResource("3_k8sdf")]
+layout_mode = 2
+
+[node name="Ability_UI2" parent="Abilitys/VBoxContainer" instance=ExtResource("3_k8sdf")]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Ability_UI3" parent="Abilitys/VBoxContainer" instance=ExtResource("3_k8sdf")]
+layout_mode = 2
+
+[node name="Ability_UI4" parent="Abilitys/VBoxContainer" instance=ExtResource("3_k8sdf")]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="StatsUI" parent="." instance=ExtResource("10_hx2aw")]
+offset_left = 1567.0
+offset_top = 779.0
+offset_right = 2098.0
+offset_bottom = 1256.0
+scale = Vector2(0.6, 0.6)
+
+[node name="Group_player" parent="." instance=ExtResource("2_s48ig")]
+
+[node name="Ajax" parent="Group_player" instance=ExtResource("1_0qa57")]
+position = Vector2(624, 546)
+scale = Vector2(0.4, 0.4)
+atual_stats = ExtResource("5_depmo")
+
+[node name="Symas" parent="Group_player" instance=ExtResource("1_0qa57")]
+position = Vector2(292, 384)
+scale = Vector2(0.4, 0.4)
+atual_stats = ExtResource("4_k3vyx")
+
+[node name="Group_enemy" parent="." instance=ExtResource("2_s48ig")]
+
+[node name="Enemy" parent="Group_enemy" instance=ExtResource("4_ylcps")]
+position = Vector2(1474, 361)
+atual_stats = ExtResource("5_2t57q")
+group_all_stats = Array[ExtResource("6_kk1vh")]([ExtResource("5_2t57q")])
+
+[node name="TextureButton" type="TextureButton" parent="." node_paths=PackedStringArray("player_stats")]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_mnkja")
+player_stats = NodePath("../Group_player/Symas")
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(800, 100)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 563.0
+offset_right = 1363.0
+offset_bottom = 100.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_down" from="TextureButton" to="TextureButton" method="_on_button_down"]

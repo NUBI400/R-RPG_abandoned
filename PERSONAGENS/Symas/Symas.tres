@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Stats" load_steps=5 format=3 uid="uid://ckrpl57ms23uh"]
+
+[ext_resource type="Script" path="res://SCRIPTS/abilitys/abilitys.gd" id="1_wg7ry"]
+[ext_resource type="Resource" uid="uid://itcbwujm0x3a" path="res://PERSONAGENS/Symas/abilitys/Artilharia/Artilharia.tres" id="2_nlgfp"]
+[ext_resource type="Script" path="res://SCRIPTS/Stats.gd" id="2_ykddn"]
+[ext_resource type="Texture2D" uid="uid://dq3s0vtpf8cyb" path="res://ASSETS/siimas.png" id="4_m35df"]
+
+[resource]
+script = ExtResource("2_ykddn")
+name = "Symas"
+art = ExtResource("4_m35df")
+PV = 29
+PA = 28
+"Força" = 12
+Destreza = 18
+Carisma = 8
+"Constituição" = 10
+Sabedoria = 15
+Ability_deck = Array[ExtResource("1_wg7ry")]([ExtResource("2_nlgfp")])

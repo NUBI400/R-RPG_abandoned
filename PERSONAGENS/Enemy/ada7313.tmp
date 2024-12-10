@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=3 format=3 uid="uid://b0bfr51iudqys"]
+
+[ext_resource type="Script" path="res://SCRIPTS/abilitys/abilitys.gd" id="1_lnsj0"]
+[ext_resource type="Script" path="res://SCRIPTS/Enemy/Enemy_AI.gd" id="2_wnvs1"]
+
+[resource]
+script = ExtResource("2_wnvs1")
+name = ""
+PV = 0
+PA = 0
+"Força" = 0
+Destreza = 0
+Carisma = 0
+"Constituição" = 0
+Sabedoria = 0
+Ability_deck = Array[ExtResource("1_lnsj0")]([])

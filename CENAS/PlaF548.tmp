@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://crfrgmvgh4sx7"]
+
+[ext_resource type="Script" path="res://SCRIPTS/Player.gd" id="1_kpfc4"]
+[ext_resource type="Resource" uid="uid://ckrpl57ms23uh" path="res://PERSONAGENS/Symas/Symas.tres" id="2_1fkoi"]
+[ext_resource type="PackedScene" uid="uid://r8t0n04oiav7" path="res://CENAS/stats_ui.tscn" id="2_fl4me"]
+[ext_resource type="Script" path="res://SCRIPTS/Stats.gd" id="3_8dks7"]
+[ext_resource type="Resource" uid="uid://b8ormxxvey48c" path="res://PERSONAGENS/Ajax/Ajax.tres" id="4_kf5g2"]
+[ext_resource type="PackedScene" uid="uid://c76y371tu86x2" path="res://CENAS/ability_ui.tscn" id="4_ot0xg"]
+[ext_resource type="Texture2D" uid="uid://g224fje2rfq6" path="res://ASSETS/adachi.png" id="5_mi3o3"]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_kpfc4")
+group_all_stats = Array[ExtResource("3_8dks7")]([ExtResource("4_kf5g2"), ExtResource("2_1fkoi")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(374, 371)
+
+[node name="StatsUI" parent="." instance=ExtResource("2_fl4me")]
+offset_left = 1583.0
+offset_top = 779.0
+offset_right = 2104.0
+offset_bottom = 1256.0
+scale = Vector2(0.6, 0.6)
+
+[node name="Abilitys" type="Control" parent="."]
+custom_minimum_size = Vector2(700, 228)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 25.0
+offset_top = 800.0
+offset_right = 725.0
+offset_bottom = 1028.0
+
+[node name="TextureRect" type="TextureRect" parent="Abilitys"]
+modulate = Color(0.306699, 0.000135223, 0.342127, 1)
+z_index = -1
+layout_mode = 0
+offset_right = 7000.0
+offset_bottom = 2280.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_mi3o3")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Abilitys"]
+custom_minimum_size = Vector2(700, 228)
+layout_mode = 0
+offset_right = 700.0
+offset_bottom = 228.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Abilitys/VBoxContainer"]
+layout_mode = 2
+
+[node name="Ability_UI" parent="Abilitys/VBoxContainer/HBoxContainer" instance=ExtResource("4_ot0xg")]
+layout_mode = 2
+
+[node name="Ability_UI2" parent="Abilitys/VBoxContainer/HBoxContainer" instance=ExtResource("4_ot0xg")]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="VSeparator" type="VSeparator" parent="Abilitys/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Abilitys/VBoxContainer"]
+layout_mode = 2
+
+[node name="Ability_UI" parent="Abilitys/VBoxContainer/HBoxContainer2" instance=ExtResource("4_ot0xg")]
+layout_mode = 2
+
+[node name="Ability_UI2" parent="Abilitys/VBoxContainer/HBoxContainer2" instance=ExtResource("4_ot0xg")]
+layout_mode = 2
+size_flags_horizontal = 10

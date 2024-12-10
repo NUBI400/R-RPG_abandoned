@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://dc2djsdny756m"]
+
+[ext_resource type="Texture2D" uid="uid://t1qidgiul6ih" path="res://icon.svg" id="1_10otf"]
+[ext_resource type="Script" path="res://SCRIPTS/abilitys/Ability_animation.gd" id="2_fug8e"]
+
+[sub_resource type="Animation" id="Animation_qec6r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_b3hp2"]
+resource_name = "teste"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_347h3"]
+_data = {
+"RESET": SubResource("Animation_qec6r"),
+"teste": SubResource("Animation_b3hp2")
+}
+
+[node name="Sprite2D" type="Sprite2D"]
+texture = ExtResource("1_10otf")
+script = ExtResource("2_fug8e")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_347h3")
+}
+autoplay = "teste"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

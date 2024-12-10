@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Stats" load_steps=5 format=3 uid="uid://b8ormxxvey48c"]
+
+[ext_resource type="Script" path="res://SCRIPTS/abilitys/abilitys.gd" id="1_lj2p5"]
+[ext_resource type="Script" path="res://SCRIPTS/Stats.gd" id="1_stk6u"]
+[ext_resource type="Texture2D" uid="uid://jki0q4lu6sxy" path="res://ASSETS/ADACAHI.png" id="2_ri8qm"]
+[ext_resource type="Resource" uid="uid://dc8xq1o0voqjt" path="res://PERSONAGENS/teste_ability2.tres" id="3_atpye"]
+
+[resource]
+script = ExtResource("1_stk6u")
+name = "Ajax"
+art = ExtResource("2_ri8qm")
+PV = 34
+PA = 27
+"Força" = 18
+Destreza = 120
+Carisma = 10
+"Constituição" = 15
+Sabedoria = 8
+Ability_deck = Array[ExtResource("1_lj2p5")]([ExtResource("3_atpye"), ExtResource("3_atpye")])

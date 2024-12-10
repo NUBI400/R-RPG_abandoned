@@ -1,0 +1,201 @@
+[gd_scene load_steps=19 format=3 uid="uid://b0sr0eokhm2r7"]
+
+[ext_resource type="Script" path="res://SCRIPTS/personagem_free_run.gd" id="1_bbma8"]
+[ext_resource type="Texture2D" uid="uid://drpg8wwje05x" path="res://ASSETS/CimaTest.png" id="2_lxusq"]
+[ext_resource type="Texture2D" uid="uid://cq50xudinybwq" path="res://ASSETS/BaixoTest.png" id="3_o6hi5"]
+[ext_resource type="Texture2D" uid="uid://c87t1eyjgsuyd" path="res://ASSETS/BaixoTestRUN.png" id="3_wcm4x"]
+[ext_resource type="Texture2D" uid="uid://cnjkevqxkhkrj" path="res://ASSETS/LadoTest.png" id="4_1sscg"]
+[ext_resource type="Texture2D" uid="uid://ddw5h6h3fr32r" path="res://ASSETS/BaixoTestParado.png" id="4_ykuhm"]
+[ext_resource type="Texture2D" uid="uid://28cb8hy0qdrg" path="res://ASSETS/CimaTestRUN.png" id="5_0jijc"]
+[ext_resource type="Texture2D" uid="uid://8k1s5ksgl8wi" path="res://ASSETS/CimaTestParado.png" id="7_skg8l"]
+[ext_resource type="Texture2D" uid="uid://llyouwjkad0j" path="res://ASSETS/LadoTestRUN.png" id="7_ul7u8"]
+[ext_resource type="Texture2D" uid="uid://ba5m6n5bu7tpr" path="res://ASSETS/BaixoLadoTest.png" id="8_7kp0r"]
+[ext_resource type="Texture2D" uid="uid://b3pdd0kxaj2nr" path="res://ASSETS/BaixoLadoTesRun.png" id="9_5arwp"]
+[ext_resource type="Texture2D" uid="uid://bgsyotbwbyt53" path="res://ASSETS/BaixoLadoTesParadot.png" id="10_c7elj"]
+[ext_resource type="Texture2D" uid="uid://cgsvux6kdht1m" path="res://ASSETS/LadoTestParado.png" id="10_gp4ls"]
+[ext_resource type="Texture2D" uid="uid://b3milknpq4t7q" path="res://ASSETS/CimaLadoTest.png" id="11_mg6pa"]
+[ext_resource type="Texture2D" uid="uid://dvsylntthfbd2" path="res://ASSETS/CimaLadoTesRun.png" id="12_llrd8"]
+[ext_resource type="Texture2D" uid="uid://bmf8dfdvjpcv4" path="res://ASSETS/CimaLadoTesParadot.png" id="13_h2gnd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tw8sg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_o6hi5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ykuhm")
+}],
+"loop": true,
+"name": &"Baixo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_wcm4x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_o6hi5")
+}],
+"loop": true,
+"name": &"Baixo_RUN",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ykuhm")
+}],
+"loop": true,
+"name": &"Baixo_STOP",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lxusq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_skg8l")
+}],
+"loop": true,
+"name": &"Cima",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_0jijc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_lxusq")
+}],
+"loop": true,
+"name": &"Cima_RUN",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_skg8l")
+}],
+"loop": true,
+"name": &"Cima_STOP",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_7kp0r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_c7elj")
+}],
+"loop": true,
+"name": &"DiagonalBaixo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_5arwp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7kp0r")
+}],
+"loop": true,
+"name": &"DiagonalBaixo_RUN",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_c7elj")
+}],
+"loop": true,
+"name": &"DiagonalBaixo_STOP",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_mg6pa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_h2gnd")
+}],
+"loop": true,
+"name": &"DiagonalCima",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_llrd8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_mg6pa")
+}],
+"loop": true,
+"name": &"DiagonalCima_RUN",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_h2gnd")
+}],
+"loop": true,
+"name": &"DiagonalCima_STOP",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_1sscg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_gp4ls")
+}],
+"loop": true,
+"name": &"Lado",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ul7u8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1sscg")
+}],
+"loop": true,
+"name": &"Lado_RUN",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_gp4ls")
+}],
+"loop": true,
+"name": &"Lado_STOP",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1c3c4"]
+radius = 45.2769
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_bbma8")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_tw8sg")
+animation = &"Lado_RUN"
+
+[node name="Colisao" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1c3c4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 600.0
+offset_top = 1.0
+offset_right = 704.0
+offset_bottom = 24.0
+text = "SEXOOOOOO"
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+offset_left = 471.0
+offset_top = 2.0
+offset_right = 575.0
+offset_bottom = 25.0
+text = "SEXOOOOOO"

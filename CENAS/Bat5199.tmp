@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://ca06f0iwbv443"]
+
+[ext_resource type="PackedScene" uid="uid://crfrgmvgh4sx7" path="res://CENAS/Player.tscn" id="1_0qa57"]
+[ext_resource type="Script" path="res://SCRIPTS/battle.gd" id="1_1pni0"]
+[ext_resource type="Texture2D" uid="uid://g224fje2rfq6" path="res://ASSETS/adachi.png" id="2_82wvr"]
+[ext_resource type="Script" path="res://CENAS/a.gd" id="3_mnkja"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4oe0h"]
+size = Vector2(412, 326)
+
+[node name="Battle" type="Node2D"]
+script = ExtResource("1_1pni0")
+group_all_stats = null
+enemy_team = null
+
+[node name="Player" parent="." instance=ExtResource("1_0qa57")]
+
+[node name="CardDropArea" type="Area2D" parent="." groups=["enemies"]]
+position = Vector2(1386, 272)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea"]
+shape = SubResource("RectangleShape2D_4oe0h")
+
+[node name="TextureButton" type="TextureButton" parent="." node_paths=PackedStringArray("player_stats")]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("2_82wvr")
+script = ExtResource("3_mnkja")
+player_stats = NodePath("../Player")
+
+[connection signal="button_down" from="TextureButton" to="TextureButton" method="_on_button_down"]

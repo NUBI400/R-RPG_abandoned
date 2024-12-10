@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://itcbwujm0x3a"]
+
+[ext_resource type="Script" path="res://PERSONAGENS/Symas/abilitys/Artilharia/Artilharia.gd" id="1_6ocg8"]
+[ext_resource type="Texture2D" uid="uid://g224fje2rfq6" path="res://ASSETS/adachi.png" id="1_qdig3"]
+[ext_resource type="PackedScene" uid="uid://dc2djsdny756m" path="res://CENAS/teste_attack_anim.tscn" id="3_bbpxc"]
+
+[resource]
+script = ExtResource("1_6ocg8")
+damage = 14
+name = "Artilharia"
+type = 0
+target = 1
+cost = 10
+icon = ExtResource("1_qdig3")
+tooltip_text = ""
+visual_game = ExtResource("3_bbpxc")

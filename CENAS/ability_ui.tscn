@@ -1,0 +1,130 @@
+[gd_scene load_steps=11 format=3 uid="uid://c76y371tu86x2"]
+
+[ext_resource type="Script" path="res://SCRIPTS/abilitys/ability_ui.gd" id="1_46vqu"]
+[ext_resource type="Texture2D" uid="uid://g224fje2rfq6" path="res://ASSETS/adachi.png" id="1_f7io7"]
+[ext_resource type="Texture2D" uid="uid://by3n8nsoky4f7" path="res://ASSETS/adachi_false.png" id="1_kpgve"]
+[ext_resource type="Script" path="res://SCRIPTS/abilitys/abilitys_state_machine/ability_state_machine.gd" id="4_m26br"]
+[ext_resource type="Script" path="res://SCRIPTS/abilitys/abilitys_state_machine/states/CardBaseState.gd" id="5_x7gna"]
+[ext_resource type="Script" path="res://SCRIPTS/abilitys/abilitys_state_machine/states/CardSelectState.gd" id="6_605iy"]
+[ext_resource type="Script" path="res://SCRIPTS/abilitys/abilitys_state_machine/states/CardReleasedState.gd" id="7_kvokp"]
+[ext_resource type="Script" path="res://SCRIPTS/abilitys/abilitys_state_machine/states/CardClickedState.gd" id="8_frtbs"]
+[ext_resource type="Script" path="res://SCRIPTS/abilitys/abilitys_state_machine/states/CardDraggingState.gd" id="9_2ytf7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7si0r"]
+size = Vector2(300, 100)
+
+[node name="Ability_UI" type="Control"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1620.0
+offset_bottom = -980.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_46vqu")
+
+[node name="Fundo_select" type="ColorRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 0
+offset_top = -10.0
+offset_right = 300.0
+offset_bottom = 90.0
+
+[node name="Fundo" type="TextureRect" parent="."]
+modulate = Color(0.190762, 0.190762, 0.190762, 1)
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_kpgve")
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 0
+offset_right = 273.0
+offset_bottom = 100.0
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "ADACHI"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("1_f7io7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Cost" type="Label" parent="HBoxContainer/HBoxContainer/Icon"]
+z_index = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 1, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 45
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DropPointDetector" type="Area2D" parent="."]
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropPointDetector"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(150, 50)
+shape = SubResource("RectangleShape2D_7si0r")
+
+[node name="CardStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("4_m26br")
+initial_state = NodePath("CardBaseState")
+
+[node name="CardBaseState" type="Node" parent="CardStateMachine"]
+script = ExtResource("5_x7gna")
+
+[node name="CardSelectState" type="Node" parent="CardStateMachine"]
+script = ExtResource("6_605iy")
+state = 4
+
+[node name="CardReleasedState" type="Node" parent="CardStateMachine"]
+script = ExtResource("7_kvokp")
+state = 3
+
+[node name="CardClickedState" type="Node" parent="CardStateMachine"]
+script = ExtResource("8_frtbs")
+state = 1
+
+[node name="CardDraggingState" type="Node" parent="CardStateMachine"]
+script = ExtResource("9_2ytf7")
+state = 2
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="area_entered" from="DropPointDetector" to="." method="_on_drop_point_detector_area_entered"]
+[connection signal="area_exited" from="DropPointDetector" to="." method="_on_drop_point_detector_area_exited"]

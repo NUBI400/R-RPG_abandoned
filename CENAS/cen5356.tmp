@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bv2iesofef4we"]
+
+[ext_resource type="Texture2D" uid="uid://g224fje2rfq6" path="res://ASSETS/adachi.png" id="1_wveio"]
+[ext_resource type="PackedScene" uid="uid://b0sr0eokhm2r7" path="res://CENAS/personagemFreeRun.tscn" id="2_qqi37"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Adachi" type="Sprite2D" parent="."]
+position = Vector2(193, 209)
+texture = ExtResource("1_wveio")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_qqi37")]
+position = Vector2(238, 218)
